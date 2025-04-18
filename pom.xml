@@ -71,12 +71,10 @@
 
     <!-- Dependency versions -->
     <version.maven>3.9.9</version.maven>
-    <version.resolver>1.9.22</version.resolver>
-    <version.slf4j>2.0.17</version.slf4j>
+    <version.slf4j>1.7.36</version.slf4j>
     <version.mavenPluginTools>3.15.1</version.mavenPluginTools>
-    <version.testcontainers>1.20.6</version.testcontainers>
 
-    <!-- Plugins -->
+    <!-- Plugins (used for filtering in extension) -->
     <version.maven-resources-plugin>3.3.1</version.maven-resources-plugin>
     <version.maven-jar-plugin>3.4.2</version.maven-jar-plugin>
     <version.maven-install-plugin>3.1.4</version.maven-install-plugin>
@@ -97,41 +95,9 @@
         <version>${version.slf4j}</version>
       </dependency>
       <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>jcl-over-slf4j</artifactId>
-        <version>${version.slf4j}</version>
-      </dependency>
-      <dependency>
         <groupId>javax.inject</groupId>
         <artifactId>javax.inject</artifactId>
         <version>1</version>
-      </dependency>
-
-      <!-- Resolver + Maven -->
-      <dependency>
-        <groupId>org.apache.maven.resolver</groupId>
-        <artifactId>maven-resolver-api</artifactId>
-        <version>${version.resolver}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.maven.resolver</groupId>
-        <artifactId>maven-resolver-spi</artifactId>
-        <version>${version.resolver}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.maven.resolver</groupId>
-        <artifactId>maven-resolver-util</artifactId>
-        <version>${version.resolver}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.maven.resolver</groupId>
-        <artifactId>maven-resolver-impl</artifactId>
-        <version>${version.resolver}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.maven.resolver</groupId>
-        <artifactId>maven-resolver-connector-basic</artifactId>
-        <version>${version.resolver}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.maven</groupId>
@@ -141,16 +107,6 @@
       <dependency>
         <groupId>org.apache.maven</groupId>
         <artifactId>maven-core</artifactId>
-        <version>${version.maven}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.maven</groupId>
-        <artifactId>maven-model</artifactId>
-        <version>${version.maven}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.maven</groupId>
-        <artifactId>maven-resolver-provider</artifactId>
         <version>${version.maven}</version>
       </dependency>
 
