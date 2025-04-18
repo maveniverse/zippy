@@ -25,6 +25,7 @@
   <properties>
     <maven3Version>3.9.9</maven3Version>
     <maven4Version>4.0.0-rc-3</maven4Version>
+    <maven4IncompatibleJava>true</maven4IncompatibleJava>
   </properties>
 
   <dependencies>
@@ -43,6 +44,9 @@
   <profiles>
     <profile>
       <id>run-its</id>
+      <properties>
+        <run-its>true</run-its>
+      </properties>
       <build>
         <plugins>
           <plugin>
@@ -138,23 +142,6 @@
                   <addTestClassPath>false</addTestClassPath>
                 </configuration>
               </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <profile>
-      <id>maven4-capable-java</id>
-      <activation>
-        <jdk>[17,)</jdk>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-invoker-plugin</artifactId>
-            <executions>
               <execution>
                 <id>mvn4-its-run</id>
                 <goals>
@@ -162,6 +149,7 @@
                 </goals>
                 <phase>integration-test</phase>
                 <configuration>
+                  <skipInvocation>${maven4IncompatibleJava}</skipInvocation>
                   <mavenHome>${project.build.directory}/dependency/apache-maven-${maven4Version}</mavenHome>
                   <cloneProjectsTo>${project.build.directory}/mvn4-it</cloneProjectsTo>
                   <localRepositoryPath>${project.build.directory}/it-repo</localRepositoryPath>
@@ -183,6 +171,16 @@
           </plugin>
         </plugins>
       </build>
+    </profile>
+
+    <profile>
+      <id>maven4-capable-java</id>
+      <activation>
+        <jdk>[17,)</jdk>
+      </activation>
+      <properties>
+        <maven4IncompatibleJava>false</maven4IncompatibleJava>
+      </properties>
     </profile>
   </profiles>
 </project>
