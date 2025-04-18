@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2023-2024 Maveniverse Org.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v2.0
+    which accompanies this distribution, and is available at
+    https://www.eclipse.org/legal/epl-v20.html
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>eu.maveniverse.maven.parent</groupId>
+    <artifactId>parent</artifactId>
+    <version>26</version>
+  </parent>
+
+  <groupId>eu.maveniverse.maven.zippy</groupId>
+  <artifactId>zippy</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>${project.groupId}:${project.artifactId}</name>
+  <description>Maveniverse Zippy.</description>
+
+  <url>https://www.maveniverse.eu/zippy</url>
+
+  <licenses>
+    <license>
+      <name>EPL-2.0</name>
+      <url>https://www.eclipse.org/legal/epl-2.0/</url>
+    </license>
+  </licenses>
+
+  <modules>
+    <module>extension3</module>
+    <module>plugin</module>
+    <module>it</module>
+  </modules>
+
+  <scm>
+    <connection>scm:git:git@github.com:maveniverse/zippy.git</connection>
+    <developerConnection>scm:git:git@github.com:maveniverse/zippy.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/maveniverse/zippy</url>
+  </scm>
+
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/maveniverse/zippy/issues</url>
+  </issueManagement>
+
+  <ciManagement>
+    <system>Github</system>
+    <url>https://github.com/maveniverse/zippy/actions</url>
+  </ciManagement>
+
+  <properties>
+    <project.build.outputTimestamp>2025-04-17T17:15:27Z</project.build.outputTimestamp>
+
+    <!--
+    Build time: latest stable Maven and Java 21+
+    Run time: current Maven (3.9+) and Java 21+
+    -->
+    <maven.compiler.release>8</maven.compiler.release>
+    <requireBuildtimeJavaVersion.version>[21.0.3,)</requireBuildtimeJavaVersion.version>
+    <requireBuildtimeMavenVersion.version>[3.9.9,)</requireBuildtimeMavenVersion.version>
+    <requireRuntimeMavenVersion.version>[3.9.9,)</requireRuntimeMavenVersion.version>
+
+    <!-- Dependency versions -->
+    <version.maven>3.9.9</version.maven>
+    <version.resolver>1.9.22</version.resolver>
+    <version.slf4j>2.0.17</version.slf4j>
+    <version.mavenPluginTools>3.15.1</version.mavenPluginTools>
+    <version.testcontainers>1.20.6</version.testcontainers>
+
+    <!-- Plugins -->
+    <version.maven-resources-plugin>3.3.1</version.maven-resources-plugin>
+    <version.maven-jar-plugin>3.4.2</version.maven-jar-plugin>
+    <version.maven-install-plugin>3.1.4</version.maven-install-plugin>
+    <version.maven-deploy-plugin>3.1.4</version.maven-deploy-plugin>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Logging (except API, runtime only) -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${version.slf4j}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>${version.slf4j}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>${version.slf4j}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.inject</groupId>
+        <artifactId>javax.inject</artifactId>
+        <version>1</version>
+      </dependency>
+
+      <!-- Resolver + Maven -->
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-api</artifactId>
+        <version>${version.resolver}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-spi</artifactId>
+        <version>${version.resolver}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-util</artifactId>
+        <version>${version.resolver}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-impl</artifactId>
+        <version>${version.resolver}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-connector-basic</artifactId>
+        <version>${version.resolver}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-plugin-api</artifactId>
+        <version>${version.maven}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-core</artifactId>
+        <version>${version.maven}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-model</artifactId>
+        <version>${version.maven}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-resolver-provider</artifactId>
+        <version>${version.maven}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.maven.plugin-tools</groupId>
+        <artifactId>maven-plugin-annotations</artifactId>
+        <version>${version.mavenPluginTools}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.12.2</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-plugin-plugin</artifactId>
+          <version>${version.mavenPluginTools}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <configuration>
+            <skip>false</skip>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.sisu</groupId>
+        <artifactId>sisu-maven-plugin</artifactId>
+        <version>${version.sisu}</version>
+        <executions>
+          <execution>
+            <id>index-project</id>
+            <goals>
+              <goal>main-index</goal>
+              <goal>test-index</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.gaul</groupId>
+        <artifactId>modernizer-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>modernizer</id>
+            <goals>
+              <goal>modernizer</goal>
+            </goals>
+            <phase>verify</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-report-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>
