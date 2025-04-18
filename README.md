@@ -7,13 +7,14 @@ Requirements:
 * Maven 3.9+
 
 This extension and plugin suite provides following bits:
-* Provides `zip-classpath` artifact handler that makes it possible to declare this as dependency type, and the ZIP file will
-  be added to classpath
-* Provides `zip` artifact handler that makes it behave _exactly as Maven 3 would do_ (do not add it to classpath), **but**
-  you can define `maveniverse.zippy.zip.classpath=true` Java System Property and then ZIPs will be added to classpath.
-  For new projects, use of explicitly type `zip-classpath` is *recommended*.
+* Provides `zip-classpath` artifact handler that makes it possible to declare dependency of this `type=zip-classpath`, 
+  and the ZIP file will  be added to classpath.
+* Provides `zip` artifact handler that makes Maven behave _exactly as without it_ (do not add it to classpath), **but**
+  you can override this behaviour by setting `maveniverse.zippy.zip.classpath=true` Java System Property and then 
+  dependencies of `type=zip` will be added to classpath.
+  For new projects, use of explicitly type `zip-classpath` is **recommended**.
 * Provides simple `zip` packaging (POM `<packaging>zip</packaging>`) that is producing a ZIP file from unfiltered and
-  possibly filtered resources (is based on `maven-jar-plugin` so same applies).
+  possibly filtered resources (is based on `maven-jar-plugin` so almost same options applies).
 
 ## To use it
 
