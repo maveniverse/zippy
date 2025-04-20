@@ -9,8 +9,8 @@ on:
 jobs:
   build:
     name: Verify
-    uses: maveniverse/parent/.github/workflows/ci.yml@release-26
+    uses: maveniverse/parent/.github/workflows/ci.yml@release-28
     with:
-      maven-matrix: '[ "3.9.9" ]' # the IT does matrix mvn3 + mvn4; for running 3.9.9 is enough
+      maven-matrix: '[ "3.9.9" ]' # the IT does mvn matrix
       maven-test: './mvnw clean verify -e -B -V -P run-its -f it'
 
