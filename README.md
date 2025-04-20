@@ -1,6 +1,6 @@
 # Zippy
 
-[![Maven Central](https://img.shields.io/maven-central/v/eu.maveniverse.maven.zippy/extension.svg?label=Maven%20Central)](https://search.maven.org/artifact/eu.maveniverse.maven.zippy/extension)
+[![Maven Central](https://img.shields.io/maven-central/v/eu.maveniverse.maven.zippy/extension3.svg?label=Maven%20Central)](https://search.maven.org/artifact/eu.maveniverse.maven.zippy/extension3)
 
 Requirements:
 * Java 8+
