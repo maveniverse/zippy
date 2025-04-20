@@ -77,8 +77,8 @@
         <artifactId>maven-plugin-plugin</artifactId>
         <configuration>
           <goalPrefix>zippy</goalPrefix>
-          <requiredMavenVersion>${requireRuntimeMavenVersion.version}</requiredMavenVersion>
-          <requiredJavaVersion>${requireRuntimeJavaVersion.version}</requiredJavaVersion>
+          <requiredMavenVersion>${requireRuntimeMavenVersion.range}</requiredMavenVersion>
+          <requiredJavaVersion>${requireRuntimeJavaVersion.range}</requiredJavaVersion>
         </configuration>
         <executions>
           <execution>
