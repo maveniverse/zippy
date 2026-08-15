@@ -18,7 +18,7 @@ This extension and plugin suite provides following bits:
 
 ## To use it
 
-With Maven 3 create project-wide, or with Maven 4-rc-3+ create user-wide `~/.m2/extensions.xml` like this:
+With Maven 3 create project-wide in `.mvn/extensions.xml`, or with Maven 4-rc-3+ create user-wide `~/.m2/extensions.xml` like this:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <extensions>
