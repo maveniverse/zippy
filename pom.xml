@@ -67,7 +67,7 @@
     <maven.compiler.release>8</maven.compiler.release>
 
     <!-- Dependency versions -->
-    <version.maven>3.9.16</version.maven>
+    <version.maven>3.10.0</version.maven>
     <version.slf4j>1.7.36</version.slf4j>
 
     <!-- Plugins (used for filtering in extension) -->
